@@ -1,20 +1,12 @@
 from django.shortcuts import render
-
+from django.views.generic import TemplateView
 # Create your views here.
 def index(request):
-    text = 'Это шаблон для классового представления'
-    context = {
-        'text': text,
-    }
-    return render(request, 'class_template.html', context)
+    return render(request, 'second_task/func_template.html')
 
-def index1(request):
-    text1 = 'Это шаблон для функционального представления'
-    context = {
-        'text1': text1,
-    }
-    return render(request, 'func_template.html', context)
-
+class index1(TemplateView):
+    template_name = 'second_task/class_template.html'
 
 # python manage.py runserver
 # cd UrbanDjango
+# python manage.py makemigrations
